@@ -7,7 +7,7 @@
 <title>공지사항</title>
 </head>
 <body>
-<table>
+<table border="1">
 	<thead>
 		<tr>
 			<th>번호</th>
@@ -23,11 +23,15 @@
 			<td></td>
 			<td></td>
 			<td></td>
+			<td></td>
 		</tr>
 	</tbody>
 	<tfoot>
 		<tr>
-			<td colspan="4"><!-- 페이징 자리 --></td>
+			<td colspan="5"><!-- 페이징 자리 --></td>
+		</tr>
+		<tr>
+			<td colspan="5"><!-- Search part --></td>
 		</tr>
 	</tfoot>
 </table>
