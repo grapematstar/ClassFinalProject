@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,59 +24,63 @@
 							onclick="deleteCur()"></td>
 					</tr>
 					<tr>
-						<td>수강생 : 관리자</td>
+						<td colspan="2">수강생 : 관리자</td>
 					</tr>
+					</table>
+					<br/>
+				<table id="content_body_table1">
 					<tr>
 						<td rowspan="2">
 							<table border="1" cellpadding="0" cellspacing="0"
 								style="margin: 0">
 								<thead>
 									<tr align="center">
-										<td><input type="checkbox" id="selectAll"></td>
-										<td>강의CODE</td>
-										<td>과목명</td>
-										<td>종류</td>
-										<td>담당강사</td>
-										<td>강의상세</td>
+										<th><input type="checkbox" id="selectCurAll"></th>
+										<th>아이디</th>
+										<th>이름</th>
+										<th>전화번호</th>
+										<th>이메일</th>
+										<th>학교</th>
+										<th>학년</th>
 									</tr>
 								</thead>
 								<tbody>
+								  <c:if test="${empty list}">
 									<tr>
-										<td><input type="checkbox" id="selectBtn"></td>
-										<td>A019290</td>
-										<td>국어</td>
-										<td>문학</td>
-										<td>세종대왕</td>
-										<td>훈민정음</td>
+										<td>등록된 게시물이 없습니다.</td>
 									</tr>
+								  </c:if>
+								  <c:forEach var="dto" items="${list}">
+								  	<tr align="center">
+								  		<td><input type="checkbox" id="selectCurBtn"></td>
+								  		<td>${dto.stu_id}</td>
+								  		<td>${dto.stu_name}</td>
+								  		<td>${dto.stu_tel}</td>
+								  		<td>${dto.stu_email}</td>
+								  		<td>${dto.stu_school}</td>
+								  		<td>${dto.stu_grade}</td>
+								  	</tr>
+								  </c:forEach>
 								</tbody>
 							</table>
 						</td>
 						<td>
-							<table border="1" cellspacing="0" ceallpadding="0">
-								<thead>
-									<tr align="center">
-										<td><input type="checkbox" id="selectAll"></td>
-										<td>강의CODE</td>
-										<td>과목명</td>
-										<td>종류</td>
-										<td>담당강사</td>
-										<td>강의상세</td>
-									</tr>
-								</thead>
-								<tbody>
-									<tr align="center">
-										<td><input type="checkbox" id="selectBtn"></td>
-										<td>B090041</td>
-										<td>수학</td>
-										<td>이산수학</td>
-										<td>피타고라스</td>
-										<td>이산수학의 개념</td>
-									</tr>
-								</tbody>
-							</table>
 						</td>
 					</tr>
+					
+				</table>
+				<br/>
+				<table id="content_body_table2">
+					<tr>
+						<th><input type="checkbox" id="selectCurAll"></th>
+						<th>아이디</th>
+						<th>이름</th>
+						<th>전화번호</th>
+						<th>이메일</th>
+						<th>학교</th>
+						<th>학년</th>
+					</tr>
+					
 					<tr>
 						<td><input type="button" value="수강신청확정" onclick="updateCur()"></td>
 					</tr>
@@ -99,5 +103,20 @@
 	}else if(myWidth >= 1280){
 		window.resizeTo(myWidth-200,myHeight-100);
 	}
+
+	$(function(){
+		//전체선택 체크박스 클릭
+		$("#selectCurAll").click(function(){
+			//만약 체크박스가 선택된 상태일 경우,
+			if($("#selectCurAll").prop("checked")){
+				//해당화면에 전체 checkbox를 체크해준다.
+				$("input[type=checkbox]").prop("checked",true);
+			//전체 체크박스가 해제된 상태일 경우,
+			}else{
+				//해당 화면의 모든 checkbox의 체크를 해제한다.
+				$("input[type=checkbox]").prop("checked",false);
+			}
+		});
+	});
 </script>
 </html>

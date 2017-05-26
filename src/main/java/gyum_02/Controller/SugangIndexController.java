@@ -7,17 +7,17 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class SugangIndexController {
 
-	@RequestMapping("/sg_index.do")
-	public ModelAndView sgIndex(){
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("sugang/sg_index");
-		return mav;
-	}
-	
 	@RequestMapping("/sg_favorCart.do")
 	public ModelAndView sgfavorCart(){
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("sugang/sg_favorCart");
+		return mav;
+	}
+	
+	@RequestMapping("/sg_payList.do")
+	public ModelAndView sgpayList(){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("sugang/sg_payList");
 		return mav;
 	}
 }

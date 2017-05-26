@@ -3,4 +3,41 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="gyum_02.member">
+	<insert id="StudentMemberJoin" parameterType="gyum_02.member.model.StudentMemberDTO">
+		insert into student_final 
+			values(
+				student_final.idx.nextval,
+				#{id},
+				#{pwd},
+				#{name},
+				#{tel},
+				#{email},
+				sysdate,
+				'',
+				#{school}
+				)
+	</insert>
+	<delete id="StudentMemberDelete" parameterType="String">
+		delete from student_final
+		where name=#{name}
+	</delete>
+	<select id="StudentMemberList" resultType="gyum_02.member.model.StudentMemberDTO">
+		select * from student_final
+		order by idx desc;
+	</select>
+	<select id="StudentMemberSearch" resultType="gyum_02.member.model.StudentMemberDTO">
+		select * from student_final
+		where name=#{name}	
+	</select>
+	<update id="StudentMemberUpdate" parameterType="gyum_02.member.model.StudentMemberDTO">
+		update student_final set 
+			name=#{name},
+			tel=#{tel},
+			email=#{email},
+			school=#{school}
+	</update>
+	<select id="StudentMemberLogin" resultType="gyum_02.member.model.StudentMemberDTO">
+		select pwd from student_final
+		where id=#{id}
+	</select>
 </mapper>

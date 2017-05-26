@@ -17,9 +17,9 @@
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-		<property name="url" value="jdbc:oracle:thin:@yongstudy.iptime.org:9000:orcl"/>
-		<property name="username" value="project02_02"/>
-		<property name="password" value="project02_02"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+		<property name="username" value="scott"/>
+		<property name="password" value="1234"/>
 	</bean>
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"/>
@@ -33,7 +33,12 @@
 	</bean>
 	
 	<!-- service -->
-		
+	<bean id="StudentMemberDAO" class="gyum_02.member.model.StudentMemberDAOImple">
+		<constructor-arg ref="sqlSessionTemplate"/>
+	</bean>
+	<bean id="SugangDAO" class="gyum_02.sugang.model.SugangDAOImple">
+		<constructor-arg ref="sqlSessionTemplate"/>
+	</bean>
 	<!-- view -->
 	<bean id="yongJson" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
 	
