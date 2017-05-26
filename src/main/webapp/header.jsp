@@ -19,7 +19,7 @@
 				<ul class="sidebar_nav_sub">
 					<li><a href="sg_favorCart.do">수강장바구니</a></li>
 					<li><a href="sg_index.do">수강 신청 및 취소</a></li>
-					<li><a href="#">수강 결제 내역</a></li>
+					<li><a href="sg_payList.do">수강 결제 내역</a></li>
 				</ul>
 			</li>
 			<li><a href="#">사이버강의실</a></li>
