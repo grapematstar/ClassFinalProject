@@ -14,6 +14,8 @@ public class SugangIndexController {
 		return mav;
 	}
 	
+	
+	
 	@RequestMapping("/sg_payList.do")
 	public ModelAndView sgpayList(){
 		ModelAndView mav = new ModelAndView();

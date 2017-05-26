@@ -7,7 +7,7 @@
 <title>공지사항</title>
 </head>
 <body>
-<table>
+<table border="1">
 	<thead>
 		<tr>
 			<th>작성날짜</th><td></td>
